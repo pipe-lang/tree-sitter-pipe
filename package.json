@@ -1,0 +1,17 @@
+{
+  "name": "tree-sitter-pipe",
+  "version": "1.0.0",
+  "description": "Parser for Pipe lang",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nan": "^2.15.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.0"
+  }
+}
