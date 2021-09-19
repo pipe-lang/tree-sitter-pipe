@@ -1,0 +1,10 @@
+=======
+Integer
+=======
+
+5
+
+---
+
+(instruction
+	(number))
