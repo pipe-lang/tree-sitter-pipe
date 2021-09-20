@@ -160,6 +160,10 @@
           {
             "type": "struct",
             "named": true
+          },
+          {
+            "type": "unary",
+            "named": true
           }
         ]
       }
@@ -208,6 +212,10 @@
           {
             "type": "struct",
             "named": true
+          },
+          {
+            "type": "unary",
+            "named": true
           }
         ]
       }
@@ -250,6 +258,10 @@
         },
         {
           "type": "struct",
+          "named": true
+        },
+        {
+          "type": "unary",
           "named": true
         }
       ]
@@ -329,6 +341,10 @@
         {
           "type": "struct",
           "named": true
+        },
+        {
+          "type": "unary",
+          "named": true
         }
       ]
     }
@@ -381,6 +397,10 @@
           {
             "type": "struct",
             "named": true
+          },
+          {
+            "type": "unary",
+            "named": true
           }
         ]
       }
@@ -423,6 +443,10 @@
         },
         {
           "type": "struct",
+          "named": true
+        },
+        {
+          "type": "unary",
           "named": true
         }
       ]
@@ -474,6 +498,10 @@
         },
         {
           "type": "struct",
+          "named": true
+        },
+        {
+          "type": "unary",
           "named": true
         }
       ]
@@ -600,6 +628,66 @@
     }
   },
   {
+    "type": "unary",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "enum",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "range",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct",
+          "named": true
+        },
+        {
+          "type": "unary",
+          "named": true
+        },
+        {
+          "type": "unary_operator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unary_operator",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "(",
     "named": false
   },
@@ -658,6 +746,10 @@
   {
     "type": "name",
     "named": true
+  },
+  {
+    "type": "not",
+    "named": false
   },
   {
     "type": "number",

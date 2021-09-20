@@ -17,7 +17,7 @@
         ]
       }
     },
-    "_value": {
+    "_literal": {
       "type": "CHOICE",
       "members": [
         {
@@ -59,11 +59,15 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_value"
+          "name": "_literal"
         },
         {
           "type": "SYMBOL",
           "name": "function_call"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unary"
         }
       ]
     },
@@ -121,7 +125,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_value"
+            "name": "_literal"
           }
         },
         {
@@ -147,7 +151,7 @@
                   "name": "begin",
                   "content": {
                     "type": "SYMBOL",
-                    "name": "_value"
+                    "name": "_literal"
                   }
                 },
                 {
@@ -163,7 +167,7 @@
                   "name": "end",
                   "content": {
                     "type": "SYMBOL",
-                    "name": "_value"
+                    "name": "_literal"
                   }
                 }
               ]
@@ -185,7 +189,7 @@
                 "name": "end",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_value"
+                  "name": "_literal"
                 }
               }
             ]
@@ -198,7 +202,7 @@
                 "name": "begin",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_value"
+                  "name": "_literal"
                 }
               },
               {
@@ -327,7 +331,7 @@
           "type": "REPEAT1",
           "content": {
             "type": "SYMBOL",
-            "name": "_value"
+            "name": "_literal"
           }
         },
         {
@@ -345,7 +349,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_value"
+                "name": "_literal"
               }
             ]
           }
@@ -405,6 +409,28 @@
         {
           "type": "STRING",
           "value": ")"
+        }
+      ]
+    },
+    "unary": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "unary_operator"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
+      ]
+    },
+    "unary_operator": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "not"
         }
       ]
     },

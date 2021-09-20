@@ -1,0 +1,10 @@
+===
+unary negation
+===
+
+not true
+
+---
+(module
+  (unary
+    (unary_operator) (bool)))

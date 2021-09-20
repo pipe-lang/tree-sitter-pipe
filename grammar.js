@@ -8,7 +8,7 @@ module.exports = grammar({
   rules: {
     module: $ => repeat(choice($._declaration, $._expression)),
 
-    _value: $ => choice(
+    _literal: $ => choice(
       $.number,
       $.float,
       $.bool,
@@ -20,8 +20,9 @@ module.exports = grammar({
     ),
 
     _expression: $ => choice(
-      $._value,
-      $.function_call
+      $._literal,
+      $.function_call,
+      $.unary
     ),
 
     _declaration: $ => choice(
@@ -32,10 +33,10 @@ module.exports = grammar({
     float:  $ => /\d+\.\d+/,
     bool:   $ => choice('true', 'false'),
     string: $ => choice( $._quoted_string, $._unquoted_string),
-    array:  $ => seq('[', repeat($._value), ']'),
+    array:  $ => seq('[', repeat($._literal), ']'),
     range:  $ => {
-      const begin    = field('begin', $._value);
-      const end      = field('end', $._value);
+      const begin    = field('begin', $._literal);
+      const end      = field('end', $._literal);
       const operator = field('operator', $._range_operator);
 
       return prec(PREC.range, choice(
@@ -58,11 +59,14 @@ module.exports = grammar({
     inclusive: $ => '..',
     exclusive: $ => '..<',
 
-    attributes: $ => choice(repeat1($._value), repeat1(seq($.identifier, ':', $._value))),
+    attributes: $ => choice(repeat1($._literal), repeat1(seq($.identifier, ':', $._literal))),
 
     conditional: $ => seq($.if, repeat($.elseif), optional($.else), 'end'),
 
     function_call: $ => seq($.identifier, '(', repeat($._expression), ')'),
+    unary:         $ => seq($.unary_operator, $._expression),
+
+    unary_operator: $ => choice('not'),
 
     name:       $ => /[A-Z]+\w*/,   // NOTE should it be able to start with numbers?
     identifier: $ => /[a-z]+\w*/,   // NOTE should it be able to start with numbers?
