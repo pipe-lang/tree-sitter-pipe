@@ -38,6 +38,10 @@
         {
           "type": "SYMBOL",
           "name": "struct"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "enum"
         }
       ]
     },
@@ -222,6 +226,40 @@
         }
       ]
     },
+    "enum": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "name"
+        },
+        {
+          "type": "STRING",
+          "value": "::"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "number"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "bool"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "name"
+            }
+          ]
+        }
+      ]
+    },
     "_unquoted_string": {
       "type": "PATTERN",
       "value": "[a-z]+\\w*"
@@ -250,10 +288,6 @@
     "exclusive": {
       "type": "STRING",
       "value": "..<"
-    },
-    "name": {
-      "type": "PATTERN",
-      "value": "[A-Z]+\\w*"
     },
     "attributes": {
       "type": "CHOICE",
@@ -286,6 +320,10 @@
           }
         }
       ]
+    },
+    "name": {
+      "type": "PATTERN",
+      "value": "[A-Z]+\\w*"
     },
     "identifier": {
       "type": "PATTERN",

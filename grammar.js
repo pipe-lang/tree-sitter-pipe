@@ -16,6 +16,7 @@ module.exports = grammar({
       $.array,
       $.range,
       $.struct,
+      $.enum,
     ),
 
     number: $ => /\d+/,
@@ -38,24 +39,25 @@ module.exports = grammar({
       ))
     },
     struct: $ => choice(seq($.name, '{', '}'), seq($.name, '{', $.attributes, '}')),
+    enum: $ => seq($.name, '::', choice($.number, $.bool, $.identifier, $.name)),
 
     _unquoted_string:   $ => /[a-z]+\w*/,
     _quoted_string:     $ => /\"\w*\"/,
 
     _range_operator: $ => choice($.inclusive, $.exclusive,),
+
     inclusive: $ => '..',
     exclusive: $ => '..<',
-
-    name: $ => /[A-Z]+\w*/,       // NOTE sould it be able to start with numbers?
 
     attributes: $ => choice(
       repeat1($._instruction),
       repeat1(seq($.identifier, ':', $._instruction)),
     ),
     
-    identifier: $ => /[a-z]+\w*/  // NOTE should it be able to start with numbers?
+    name:       $ => /[A-Z]+\w*/,   // NOTE sould it be able to start with numbers?
+    identifier: $ => /[a-z]+\w*/,   // NOTE should it be able to start with numbers?
   }
 });
 
-                                  // NOTE How to build this grammar using pipe lang?
+// NOTE How to build this grammar using pipe lang?
 

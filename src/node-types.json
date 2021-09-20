@@ -16,6 +16,10 @@
           "named": true
         },
         {
+          "type": "enum",
+          "named": true
+        },
+        {
           "type": "float",
           "named": true
         },
@@ -55,6 +59,10 @@
           "named": true
         },
         {
+          "type": "enum",
+          "named": true
+        },
+        {
           "type": "float",
           "named": true
         },
@@ -87,6 +95,33 @@
     "fields": {}
   },
   {
+    "type": "enum",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "name",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "identifier",
     "named": true,
     "fields": {}
@@ -105,6 +140,10 @@
         },
         {
           "type": "bool",
+          "named": true
+        },
+        {
+          "type": "enum",
           "named": true
         },
         {
@@ -147,6 +186,10 @@
             "named": true
           },
           {
+            "type": "enum",
+            "named": true
+          },
+          {
             "type": "float",
             "named": true
           },
@@ -178,6 +221,10 @@
           },
           {
             "type": "bool",
+            "named": true
+          },
+          {
+            "type": "enum",
             "named": true
           },
           {
@@ -244,6 +291,10 @@
   },
   {
     "type": ":",
+    "named": false
+  },
+  {
+    "type": "::",
     "named": false
   },
   {

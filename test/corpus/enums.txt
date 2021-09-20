@@ -1,0 +1,43 @@
+=======
+numeric
+=======
+
+Version::42
+
+---
+(module
+ (enum
+ 	(name) (number)))
+
+=========
+bool true
+=========
+
+On::true
+
+---
+(module
+ (enum
+ 	(name) (bool)))
+
+======
+string
+======
+
+Dog::shiba
+
+---
+(module
+ (enum
+ 	(name) (identifier)))
+
+======
+string
+======
+
+Names::Steven
+
+---
+(module
+ (enum
+ 	(name) (name)))
