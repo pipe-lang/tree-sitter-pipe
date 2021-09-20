@@ -436,10 +436,14 @@
       ]
     },
     "_block": {
-      "type": "REPEAT1",
+      "type": "FIELD",
+      "name": "body",
       "content": {
-        "type": "SYMBOL",
-        "name": "_expression"
+        "type": "REPEAT1",
+        "content": {
+          "type": "SYMBOL",
+          "name": "_expression"
+        }
       }
     }
   },

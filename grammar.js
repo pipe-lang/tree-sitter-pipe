@@ -61,14 +61,14 @@ module.exports = grammar({
 
     conditional: $ => seq($.if, repeat($.elseif), optional($.else), 'end'),
     
-    name:       $ => /[A-Z]+\w*/,   // NOTE sould it be able to start with numbers?
+    name:       $ => /[A-Z]+\w*/,   // NOTE should it be able to start with numbers?
     identifier: $ => /[a-z]+\w*/,   // NOTE should it be able to start with numbers?
 
     if:     $ => seq('if', $._expression, $._block),
     elseif: $ => seq('elseif', $._expression, $._block),
     else:   $ => seq('else', $._block),
 
-    _block:  $ => repeat1($._expression)
+    _block:  $ => field('body', repeat1($._expression))
   }
 });
 
