@@ -23,21 +23,26 @@ module.exports = grammar({
     string: $ => choice( $._quoted_string, $._unquoted_string),
     array:  $ => seq('[', repeat($._instruction), ']'),
     range:  $ => {
-      const begin = field('begin', $._instruction);
-      const end   = field('end', $._instruction);
+      const begin    = field('begin', $._instruction);
+      const end      = field('end', $._instruction);
+      const operator = field('operator', $._range_operator);
 
       return prec(PREC.range, choice(
         prec.left(
           PREC.range + 1,
-          seq(begin, '..', end),
+          seq(begin, operator, end),
         ),
-        seq('..', end),
-        seq(begin, '..'),
+        seq(operator, end),
+        seq(begin, operator),
       ))
     },
 
     _unquoted_string:   $ => /[a-z]+\w*/,
     _quoted_string:     $ => /\"\w*\"/,
+
+    _range_operator: $ => choice($.inclusive, $.exclusive,),
+    inclusive: $ => '..',
+    exclusive: $ => '..<'
   }
 });
 

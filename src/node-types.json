@@ -137,6 +137,20 @@
             "named": true
           }
         ]
+      },
+      "operator": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "exclusive",
+            "named": true
+          },
+          {
+            "type": "inclusive",
+            "named": true
+          }
+        ]
       }
     }
   },
@@ -144,10 +158,6 @@
     "type": "string",
     "named": true,
     "fields": {}
-  },
-  {
-    "type": "..",
-    "named": false
   },
   {
     "type": "[",
@@ -158,11 +168,19 @@
     "named": false
   },
   {
+    "type": "exclusive",
+    "named": true
+  },
+  {
     "type": "false",
     "named": false
   },
   {
     "type": "float",
+    "named": true
+  },
+  {
+    "type": "inclusive",
     "named": true
   },
   {

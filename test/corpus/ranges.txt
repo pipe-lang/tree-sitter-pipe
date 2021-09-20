@@ -1,5 +1,5 @@
 =======
-specify both ends
+specify beginning and ending
 =======
 
 1..10
@@ -9,10 +9,11 @@ specify both ends
 (module
   (range
     begin: (number)
+    operator: (inclusive)
     end: (number)))
 
 =======
-specify end only
+specify ending only
 =======
 
 ..10
@@ -21,6 +22,7 @@ specify end only
 
 (module
   (range
+    operator: (inclusive)
     end: (number)))
 
 =======
@@ -33,4 +35,20 @@ specify begining only
 
 (module
   (range
-    begin: (number)))
+    begin: (number)
+    operator: (inclusive)
+    ))
+
+=======
+specify exclusive range
+=======
+
+5..<10
+
+---
+
+(module
+  (range
+    begin: (number)
+    operator: (exclusive)
+    end: (number)))

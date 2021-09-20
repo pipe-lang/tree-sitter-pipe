@@ -112,8 +112,12 @@
                   }
                 },
                 {
-                  "type": "STRING",
-                  "value": ".."
+                  "type": "FIELD",
+                  "name": "operator",
+                  "content": {
+                    "type": "SYMBOL",
+                    "name": "_range_operator"
+                  }
                 },
                 {
                   "type": "FIELD",
@@ -130,8 +134,12 @@
             "type": "SEQ",
             "members": [
               {
-                "type": "STRING",
-                "value": ".."
+                "type": "FIELD",
+                "name": "operator",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_range_operator"
+                }
               },
               {
                 "type": "FIELD",
@@ -155,8 +163,12 @@
                 }
               },
               {
-                "type": "STRING",
-                "value": ".."
+                "type": "FIELD",
+                "name": "operator",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_range_operator"
+                }
               }
             ]
           }
@@ -170,6 +182,27 @@
     "_quoted_string": {
       "type": "PATTERN",
       "value": "\\\"\\w*\\\""
+    },
+    "_range_operator": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "inclusive"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "exclusive"
+        }
+      ]
+    },
+    "inclusive": {
+      "type": "STRING",
+      "value": ".."
+    },
+    "exclusive": {
+      "type": "STRING",
+      "value": "..<"
     }
   },
   "extras": [
