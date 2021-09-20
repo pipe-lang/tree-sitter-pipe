@@ -4,11 +4,20 @@
     "module": {
       "type": "REPEAT",
       "content": {
-        "type": "SYMBOL",
-        "name": "_instruction"
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_declaration"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
+        ]
       }
     },
-    "_instruction": {
+    "_value": {
       "type": "CHOICE",
       "members": [
         {
@@ -42,6 +51,24 @@
         {
           "type": "SYMBOL",
           "name": "enum"
+        }
+      ]
+    },
+    "_expression": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_value"
+        }
+      ]
+    },
+    "_declaration": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "conditional"
         }
       ]
     },
@@ -90,7 +117,7 @@
           "type": "REPEAT",
           "content": {
             "type": "SYMBOL",
-            "name": "_instruction"
+            "name": "_value"
           }
         },
         {
@@ -116,7 +143,7 @@
                   "name": "begin",
                   "content": {
                     "type": "SYMBOL",
-                    "name": "_instruction"
+                    "name": "_value"
                   }
                 },
                 {
@@ -132,7 +159,7 @@
                   "name": "end",
                   "content": {
                     "type": "SYMBOL",
-                    "name": "_instruction"
+                    "name": "_value"
                   }
                 }
               ]
@@ -154,7 +181,7 @@
                 "name": "end",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_instruction"
+                  "name": "_value"
                 }
               }
             ]
@@ -167,7 +194,7 @@
                 "name": "begin",
                 "content": {
                   "type": "SYMBOL",
-                  "name": "_instruction"
+                  "name": "_value"
                 }
               },
               {
@@ -296,7 +323,7 @@
           "type": "REPEAT1",
           "content": {
             "type": "SYMBOL",
-            "name": "_instruction"
+            "name": "_value"
           }
         },
         {
@@ -314,10 +341,42 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_instruction"
+                "name": "_value"
               }
             ]
           }
+        }
+      ]
+    },
+    "conditional": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "if"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "elseif"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "else"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": "end"
         }
       ]
     },
@@ -328,6 +387,60 @@
     "identifier": {
       "type": "PATTERN",
       "value": "[a-z]+\\w*"
+    },
+    "if": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "if"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_block"
+        }
+      ]
+    },
+    "elseif": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "elseif"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_block"
+        }
+      ]
+    },
+    "else": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "else"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_block"
+        }
+      ]
+    },
+    "_block": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_expression"
+      }
     }
   },
   "extras": [

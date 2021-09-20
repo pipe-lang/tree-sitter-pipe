@@ -6,9 +6,9 @@ module.exports = grammar({
   name: 'pipe',
 
   rules: {
-    module: $ => repeat($._instruction),
+    module: $ => repeat(choice($._declaration, $._expression)),
 
-    _instruction: $ => choice(
+    _value: $ => choice(
       $.number,
       $.float,
       $.bool,
@@ -19,14 +19,22 @@ module.exports = grammar({
       $.enum,
     ),
 
+    _expression: $ => choice(
+      $._value
+    ),
+
+    _declaration: $ => choice(
+      $.conditional
+    ),
+
     number: $ => /\d+/,
     float:  $ => /\d+\.\d+/,
     bool:   $ => choice('true', 'false'),
     string: $ => choice( $._quoted_string, $._unquoted_string),
-    array:  $ => seq('[', repeat($._instruction), ']'),
+    array:  $ => seq('[', repeat($._value), ']'),
     range:  $ => {
-      const begin    = field('begin', $._instruction);
-      const end      = field('end', $._instruction);
+      const begin    = field('begin', $._value);
+      const end      = field('end', $._value);
       const operator = field('operator', $._range_operator);
 
       return prec(PREC.range, choice(
@@ -49,15 +57,19 @@ module.exports = grammar({
     inclusive: $ => '..',
     exclusive: $ => '..<',
 
-    attributes: $ => choice(
-      repeat1($._instruction),
-      repeat1(seq($.identifier, ':', $._instruction)),
-    ),
+    attributes: $ => choice(repeat1($._value), repeat1(seq($.identifier, ':', $._value))),
+
+    conditional: $ => seq($.if, repeat($.elseif), optional($.else), 'end'),
     
     name:       $ => /[A-Z]+\w*/,   // NOTE sould it be able to start with numbers?
     identifier: $ => /[a-z]+\w*/,   // NOTE should it be able to start with numbers?
+
+    if:     $ => seq('if', $._expression, $._block),
+    elseif: $ => seq('elseif', $._expression, $._block),
+    else:   $ => seq('else', $._block),
+
+    _block:  $ => repeat1($._expression)
   }
 });
 
 // NOTE How to build this grammar using pipe lang?
-

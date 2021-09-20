@@ -1,0 +1,68 @@
+===
+with one instruction
+===
+
+if true
+  42
+end
+
+---
+(module
+  (conditional
+    (if (bool)
+      (number))))
+
+===
+with multiple instructions
+===
+
+if true
+  42
+  24
+end
+
+---
+(module
+  (conditional
+    (if (bool)
+      (number) (number))))
+
+===
+with else
+===
+
+if true
+  42
+else
+  24
+end
+
+---
+(module
+  (conditional
+    (if (bool)
+      (number))
+    (else
+      (number))))
+
+===
+with elseif
+===
+
+if true
+  42
+elseif false
+  24
+else
+  84
+end
+
+---
+(module
+  (conditional
+    (if (bool)
+      (number))
+    (elseif (bool)
+      (number))
+    (else
+      (number))))
