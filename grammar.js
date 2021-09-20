@@ -20,7 +20,8 @@ module.exports = grammar({
     ),
 
     _expression: $ => choice(
-      $._value
+      $._value,
+      $.function_call
     ),
 
     _declaration: $ => choice(
@@ -60,7 +61,9 @@ module.exports = grammar({
     attributes: $ => choice(repeat1($._value), repeat1(seq($.identifier, ':', $._value))),
 
     conditional: $ => seq($.if, repeat($.elseif), optional($.else), 'end'),
-    
+
+    function_call: $ => seq($.identifier, '(', repeat($._expression), ')'),
+
     name:       $ => /[A-Z]+\w*/,   // NOTE should it be able to start with numbers?
     identifier: $ => /[a-z]+\w*/,   // NOTE should it be able to start with numbers?
 

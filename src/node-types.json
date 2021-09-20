@@ -142,6 +142,10 @@
             "named": true
           },
           {
+            "type": "function_call",
+            "named": true
+          },
+          {
             "type": "number",
             "named": true
           },
@@ -186,6 +190,10 @@
             "named": true
           },
           {
+            "type": "function_call",
+            "named": true
+          },
+          {
             "type": "number",
             "named": true
           },
@@ -222,6 +230,10 @@
         },
         {
           "type": "float",
+          "named": true
+        },
+        {
+          "type": "function_call",
           "named": true
         },
         {
@@ -271,6 +283,57 @@
     }
   },
   {
+    "type": "function_call",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "enum",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "range",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "identifier",
     "named": true,
     "fields": {}
@@ -297,6 +360,10 @@
           },
           {
             "type": "float",
+            "named": true
+          },
+          {
+            "type": "function_call",
             "named": true
           },
           {
@@ -336,6 +403,10 @@
         },
         {
           "type": "float",
+          "named": true
+        },
+        {
+          "type": "function_call",
           "named": true
         },
         {
@@ -383,6 +454,10 @@
         },
         {
           "type": "float",
+          "named": true
+        },
+        {
+          "type": "function_call",
           "named": true
         },
         {
@@ -523,6 +598,14 @@
         }
       ]
     }
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
+    "named": false
   },
   {
     "type": ":",

@@ -1,0 +1,34 @@
+===
+call without parameters
+===
+
+hello()
+
+---
+(module
+  (function_call
+    (identifier)))
+
+===
+call with one parameter
+===
+
+hello("world")
+
+---
+(module
+  (function_call
+    (identifier)
+    (string)))
+
+===
+call with two parameter
+===
+
+hello("world" 25)
+
+---
+(module
+  (function_call
+    (identifier)
+    (string) (number)))
