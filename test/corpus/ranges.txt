@@ -1,0 +1,36 @@
+=======
+specify both ends
+=======
+
+1..10
+
+---
+
+(module
+  (range
+    begin: (number)
+    end: (number)))
+
+=======
+specify end only
+=======
+
+..10
+
+---
+
+(module
+  (range
+    end: (number)))
+
+=======
+specify begining only
+=======
+
+5..
+
+---
+
+(module
+  (range
+    begin: (number)))
