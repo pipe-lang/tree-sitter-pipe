@@ -49,7 +49,7 @@ true and not false
     right: (unary (unary_operator) (bool))))
 
 ================
-additive and multiplicative
+binary additive and multiplicative
 ================
 
 1 + 1 * 2
@@ -63,3 +63,25 @@ additive and multiplicative
       right: (number))
     (binary_operator)
     right: (number)))
+
+===
+minutes postfix
+===
+
+1min
+
+---
+(module
+  (postfix
+    (number) (postfix_operator)))
+
+===
+bites postfix
+===
+
+1gb
+
+---
+(module
+  (postfix
+    (number) (postfix_operator)))

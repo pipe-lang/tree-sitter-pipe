@@ -126,6 +126,10 @@
             "named": true
           },
           {
+            "type": "postfix",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -173,6 +177,10 @@
           },
           {
             "type": "number",
+            "named": true
+          },
+          {
+            "type": "postfix",
             "named": true
           },
           {
@@ -275,6 +283,10 @@
             "named": true
           },
           {
+            "type": "postfix",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -331,6 +343,10 @@
             "named": true
           },
           {
+            "type": "postfix",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -379,6 +395,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "postfix",
           "named": true
         },
         {
@@ -468,6 +488,10 @@
           "named": true
         },
         {
+          "type": "postfix",
+          "named": true
+        },
+        {
           "type": "range",
           "named": true
         },
@@ -528,6 +552,10 @@
             "named": true
           },
           {
+            "type": "postfix",
+            "named": true
+          },
+          {
             "type": "range",
             "named": true
           },
@@ -576,6 +604,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "postfix",
           "named": true
         },
         {
@@ -638,6 +670,10 @@
           "named": true
         },
         {
+          "type": "postfix",
+          "named": true
+        },
+        {
           "type": "range",
           "named": true
         },
@@ -655,6 +691,30 @@
         }
       ]
     }
+  },
+  {
+    "type": "postfix",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "postfix_operator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "postfix_operator",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "range",
@@ -813,6 +873,10 @@
           "named": true
         },
         {
+          "type": "postfix",
+          "named": true
+        },
+        {
           "type": "range",
           "named": true
         },
@@ -901,6 +965,22 @@
     "named": false
   },
   {
+    "type": "b",
+    "named": false
+  },
+  {
+    "type": "bi",
+    "named": false
+  },
+  {
+    "type": "day",
+    "named": false
+  },
+  {
+    "type": "days",
+    "named": false
+  },
+  {
     "type": "else",
     "named": false
   },
@@ -929,12 +1009,48 @@
     "named": true
   },
   {
+    "type": "gb",
+    "named": false
+  },
+  {
+    "type": "gbi",
+    "named": false
+  },
+  {
+    "type": "hr",
+    "named": false
+  },
+  {
+    "type": "hrs",
+    "named": false
+  },
+  {
     "type": "if",
     "named": false
   },
   {
     "type": "inclusive",
     "named": true
+  },
+  {
+    "type": "kb",
+    "named": false
+  },
+  {
+    "type": "kbi",
+    "named": false
+  },
+  {
+    "type": "mb",
+    "named": false
+  },
+  {
+    "type": "mbi",
+    "named": false
+  },
+  {
+    "type": "min",
+    "named": false
   },
   {
     "type": "mod",
@@ -961,7 +1077,35 @@
     "named": false
   },
   {
+    "type": "pb",
+    "named": false
+  },
+  {
+    "type": "pbi",
+    "named": false
+  },
+  {
+    "type": "sec",
+    "named": false
+  },
+  {
+    "type": "tb",
+    "named": false
+  },
+  {
+    "type": "tbi",
+    "named": false
+  },
+  {
     "type": "true",
+    "named": false
+  },
+  {
+    "type": "wk",
+    "named": false
+  },
+  {
+    "type": "wks",
     "named": false
   },
   {

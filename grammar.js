@@ -7,7 +7,32 @@ const PREC = {
   multiplicative: 6,
   binary:         7,
   unary:          8,
-};
+}
+
+const POSTFIX = [
+  'b',
+  'kb',
+  'mb',
+  'gb',
+  'tb',
+  'pb',
+
+  'bi',
+  'kbi',
+  'mbi',
+  'gbi',
+  'tbi',
+  'pbi',
+
+  'sec',
+  'min',
+  'hr',
+  'hrs',
+  'day',
+  'days',
+  'wk',
+  'wks',
+];
 
 module.exports = grammar({
   name: 'pipe',
@@ -30,7 +55,8 @@ module.exports = grammar({
       $._literal,
       $.function_call,
       $.unary,
-      $.binary
+      $.binary,
+      $.postfix,
     ),
 
     _declaration: $ => choice(
@@ -76,8 +102,10 @@ module.exports = grammar({
     binary:        $ => prec.left(PREC.binary,
       seq(field('left', $._expression), $.binary_operator, field('right', $._expression))
     ),
+    postfix:       $ => seq($.number, $.postfix_operator),
 
-    unary_operator: $ => choice('not'),
+    unary_operator:   $ => choice('not'),
+    postfix_operator: $ => { return choice(...POSTFIX.map(x => token.immediate(x))) },
 
     binary_operator: $ => choice(
       prec.left(PREC.and,            'and'),
