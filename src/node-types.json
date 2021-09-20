@@ -90,6 +90,127 @@
     }
   },
   {
+    "type": "binary",
+    "named": true,
+    "fields": {
+      "left": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "binary",
+            "named": true
+          },
+          {
+            "type": "bool",
+            "named": true
+          },
+          {
+            "type": "enum",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "function_call",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "struct",
+            "named": true
+          },
+          {
+            "type": "unary",
+            "named": true
+          }
+        ]
+      },
+      "right": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "binary",
+            "named": true
+          },
+          {
+            "type": "bool",
+            "named": true
+          },
+          {
+            "type": "enum",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "function_call",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "struct",
+            "named": true
+          },
+          {
+            "type": "unary",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "binary_operator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "binary_operator",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "bool",
     "named": true,
     "fields": {}
@@ -127,6 +248,10 @@
         "types": [
           {
             "type": "array",
+            "named": true
+          },
+          {
+            "type": "binary",
             "named": true
           },
           {
@@ -182,6 +307,10 @@
             "named": true
           },
           {
+            "type": "binary",
+            "named": true
+          },
+          {
             "type": "bool",
             "named": true
           },
@@ -226,6 +355,10 @@
       "types": [
         {
           "type": "array",
+          "named": true
+        },
+        {
+          "type": "binary",
           "named": true
         },
         {
@@ -307,6 +440,10 @@
           "named": true
         },
         {
+          "type": "binary",
+          "named": true
+        },
+        {
           "type": "bool",
           "named": true
         },
@@ -367,6 +504,10 @@
             "named": true
           },
           {
+            "type": "binary",
+            "named": true
+          },
+          {
             "type": "bool",
             "named": true
           },
@@ -411,6 +552,10 @@
       "types": [
         {
           "type": "array",
+          "named": true
+        },
+        {
+          "type": "binary",
           "named": true
         },
         {
@@ -462,6 +607,10 @@
       "types": [
         {
           "type": "array",
+          "named": true
+        },
+        {
+          "type": "binary",
           "named": true
         },
         {
@@ -640,6 +789,10 @@
           "named": true
         },
         {
+          "type": "binary",
+          "named": true
+        },
+        {
           "type": "bool",
           "named": true
         },
@@ -696,6 +849,22 @@
     "named": false
   },
   {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "+",
+    "named": false
+  },
+  {
+    "type": "-",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
     "type": ":",
     "named": false
   },
@@ -704,11 +873,31 @@
     "named": false
   },
   {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "<=",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": ">=",
+    "named": false
+  },
+  {
     "type": "[",
     "named": false
   },
   {
     "type": "]",
+    "named": false
+  },
+  {
+    "type": "and",
     "named": false
   },
   {
@@ -721,6 +910,10 @@
   },
   {
     "type": "end",
+    "named": false
+  },
+  {
+    "type": "eq",
     "named": false
   },
   {
@@ -744,6 +937,10 @@
     "named": true
   },
   {
+    "type": "mod",
+    "named": false
+  },
+  {
     "type": "name",
     "named": true
   },
@@ -752,8 +949,16 @@
     "named": false
   },
   {
+    "type": "not eq",
+    "named": false
+  },
+  {
     "type": "number",
     "named": true
+  },
+  {
+    "type": "or",
+    "named": false
   },
   {
     "type": "true",

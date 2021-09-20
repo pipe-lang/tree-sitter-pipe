@@ -1,5 +1,12 @@
 const PREC = {
-  range: 10
+  range:          1,
+  and:            2,
+  or:             3,
+  comparative:    4,
+  additive:       5,
+  multiplicative: 6,
+  binary:         7,
+  unary:          8,
 };
 
 module.exports = grammar({
@@ -22,7 +29,8 @@ module.exports = grammar({
     _expression: $ => choice(
       $._literal,
       $.function_call,
-      $.unary
+      $.unary,
+      $.binary
     ),
 
     _declaration: $ => choice(
@@ -64,9 +72,20 @@ module.exports = grammar({
     conditional: $ => seq($.if, repeat($.elseif), optional($.else), 'end'),
 
     function_call: $ => seq($.identifier, '(', repeat($._expression), ')'),
-    unary:         $ => seq($.unary_operator, $._expression),
+    unary:         $ => prec.left(PREC.unary, seq($.unary_operator, $._expression)),
+    binary:        $ => prec.left(PREC.binary,
+      seq(field('left', $._expression), $.binary_operator, field('right', $._expression))
+    ),
 
     unary_operator: $ => choice('not'),
+
+    binary_operator: $ => choice(
+      prec.left(PREC.and,            'and'),
+      prec.left(PREC.or,             'or'),
+      prec.left(PREC.comparative,    choice('eq', 'not eq', '<', '<=', '>', '>=')),
+      prec.left(PREC.additive,       choice('+', '-')),
+      prec.left(PREC.multiplicative, choice('*', '/', 'mod')),
+    ),
 
     name:       $ => /[A-Z]+\w*/,   // NOTE should it be able to start with numbers?
     identifier: $ => /[a-z]+\w*/,   // NOTE should it be able to start with numbers?

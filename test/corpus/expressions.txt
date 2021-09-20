@@ -8,3 +8,58 @@ not true
 (module
   (unary
     (unary_operator) (bool)))
+
+===
+binary add
+===
+
+1 + 1
+
+---
+(module
+  (binary
+    left: (number)
+    (binary_operator)
+    right: (number)))
+
+================
+unary left and binary
+================
+
+not true and false
+
+---
+(module
+  (binary
+    left: (unary (unary_operator) (bool))
+    (binary_operator)
+    right: (bool)))
+
+================
+binary and left unary
+================
+
+true and not false
+
+---
+(module
+  (binary
+    left: (bool)
+    (binary_operator)
+    right: (unary (unary_operator) (bool))))
+
+================
+additive and multiplicative
+================
+
+1 + 1 * 2
+
+---
+(module
+  (binary
+    left: (binary
+      left: (number)
+      (binary_operator)
+      right: (number))
+    (binary_operator)
+    right: (number)))
