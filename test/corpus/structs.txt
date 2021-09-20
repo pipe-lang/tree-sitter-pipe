@@ -1,0 +1,50 @@
+=====
+Empty
+=====
+
+Pet {}
+
+---
+(module
+	(struct 
+		(name)))
+
+=====
+With one integer
+=====
+
+Pet { 34 }
+
+---
+(module
+	(struct 
+		(name)
+		(attributes
+			(number))))
+
+=====
+With one named integer
+=====
+
+Pet { age: 34 }
+
+---
+(module
+	(struct 
+		(name)
+		(attributes
+			(identifier) (number))))
+
+=====
+With two named attributes
+=====
+
+Pet { name: kato age: 34 }
+
+---
+(module
+	(struct 
+		(name)
+		(attributes
+			(identifier) (string)
+			(identifier) (number))))

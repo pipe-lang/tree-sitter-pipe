@@ -34,6 +34,10 @@
         {
           "type": "SYMBOL",
           "name": "range"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "struct"
         }
       ]
     },
@@ -175,6 +179,49 @@
         ]
       }
     },
+    "struct": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "name"
+            },
+            {
+              "type": "STRING",
+              "value": "{"
+            },
+            {
+              "type": "STRING",
+              "value": "}"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "name"
+            },
+            {
+              "type": "STRING",
+              "value": "{"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "attributes"
+            },
+            {
+              "type": "STRING",
+              "value": "}"
+            }
+          ]
+        }
+      ]
+    },
     "_unquoted_string": {
       "type": "PATTERN",
       "value": "[a-z]+\\w*"
@@ -203,6 +250,46 @@
     "exclusive": {
       "type": "STRING",
       "value": "..<"
+    },
+    "name": {
+      "type": "PATTERN",
+      "value": "[A-Z]+\\w*"
+    },
+    "attributes": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_instruction"
+          }
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              {
+                "type": "STRING",
+                "value": ":"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "_instruction"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "identifier": {
+      "type": "PATTERN",
+      "value": "[a-z]+\\w*"
     }
   },
   "extras": [
