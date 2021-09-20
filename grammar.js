@@ -9,19 +9,17 @@ module.exports = grammar({
       $.float,
       $.bool,
       $.string,
+      $.array,
     ),
 
     number: $ => /\d+/,
     float:  $ => /\d+\.\d+/,
     bool:   $ => choice('true', 'false'),
+    string: $ => choice( $._quoted_string, $._unquoted_string),
+    array:  $ => seq('[', repeat($._instruction), ']'),
 
-    string: $ => choice(
-      $._quoted_string,
-      $._unquoted_string,
-    ),
-
-    _unquoted_string: $ => /[a-z]+\w*/,
-    _quoted_string:   $ => /\"\w*\"/
+    _unquoted_string:   $ => /[a-z]+\w*/,
+    _quoted_string:     $ => /\"\w*\"/,
   }
 });
 

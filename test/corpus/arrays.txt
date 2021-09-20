@@ -1,0 +1,60 @@
+=======
+Empty
+=======
+
+[]
+
+---
+
+(module
+  (array))
+
+=======
+with one integer
+=======
+
+[1]
+
+---
+
+(module
+  (array
+   (number)))
+
+=======
+with one string
+=======
+
+[picnic]
+
+---
+
+(module
+  (array
+   (string)))
+
+=======
+with two integers
+=======
+
+[1 2]
+
+---
+
+(module
+  (array
+   (number)
+   (number)))
+
+=======
+with two strings
+=======
+
+[picnic beach]
+
+---
+
+(module
+  (array
+   (string)
+   (string)))
