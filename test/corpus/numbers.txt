@@ -1,0 +1,21 @@
+=======
+Integer
+=======
+
+5
+
+---
+
+(module
+	(number))
+
+=======
+Float
+=======
+
+5.5
+
+---
+
+(module
+	(float))

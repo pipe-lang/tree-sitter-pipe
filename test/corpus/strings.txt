@@ -1,0 +1,32 @@
+============
+quoted empty
+============
+
+""
+
+---
+
+(module
+  (string))
+
+=======
+quoted with content
+=======
+
+"steven"
+
+---
+
+(module
+  (string))
+
+=======
+unquoted
+=======
+
+steven
+
+---
+
+(module
+  (string))

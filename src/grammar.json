@@ -1,18 +1,75 @@
 {
   "name": "pipe",
   "rules": {
-    "instruction": {
+    "module": {
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_instruction"
+      }
+    },
+    "_instruction": {
       "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
           "name": "number"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "float"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "bool"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
         }
       ]
     },
     "number": {
       "type": "PATTERN",
       "value": "\\d+"
+    },
+    "float": {
+      "type": "PATTERN",
+      "value": "\\d+\\.\\d+"
+    },
+    "bool": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "true"
+        },
+        {
+          "type": "STRING",
+          "value": "false"
+        }
+      ]
+    },
+    "string": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_quoted_string"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_unquoted_string"
+        }
+      ]
+    },
+    "_unquoted_string": {
+      "type": "PATTERN",
+      "value": "[a-z]+\\w*"
+    },
+    "_quoted_string": {
+      "type": "PATTERN",
+      "value": "\\\"\\w*\\\""
     }
   },
   "extras": [
