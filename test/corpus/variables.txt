@@ -1,0 +1,31 @@
+===
+variable simple asignation
+===
+
+a = 1
+
+---
+(module
+  (assignment
+    name: (identifier)
+    value: (number)
+  )
+)
+
+===
+variable assign to an instruction
+===
+
+a = 1 + 1
+
+---
+(module
+  (assignment
+    name: (identifier)
+    value: (binary
+      left: (number)
+      (binary_operator)
+      right: (number)
+    )
+  )
+)

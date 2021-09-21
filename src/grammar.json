@@ -76,6 +76,10 @@
         {
           "type": "SYMBOL",
           "name": "postfix"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "assignment"
         }
       ]
     },
@@ -476,6 +480,31 @@
         {
           "type": "SYMBOL",
           "name": "postfix_operator"
+        }
+      ]
+    },
+    "assignment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
         }
       ]
     },

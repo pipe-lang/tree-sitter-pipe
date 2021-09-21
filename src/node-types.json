@@ -43,6 +43,80 @@
     }
   },
   {
+    "type": "assignment",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "array",
+            "named": true
+          },
+          {
+            "type": "assignment",
+            "named": true
+          },
+          {
+            "type": "binary",
+            "named": true
+          },
+          {
+            "type": "bool",
+            "named": true
+          },
+          {
+            "type": "enum",
+            "named": true
+          },
+          {
+            "type": "float",
+            "named": true
+          },
+          {
+            "type": "function_call",
+            "named": true
+          },
+          {
+            "type": "number",
+            "named": true
+          },
+          {
+            "type": "postfix",
+            "named": true
+          },
+          {
+            "type": "range",
+            "named": true
+          },
+          {
+            "type": "string",
+            "named": true
+          },
+          {
+            "type": "struct",
+            "named": true
+          },
+          {
+            "type": "unary",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "attributes",
     "named": true,
     "fields": {},
@@ -102,6 +176,10 @@
             "named": true
           },
           {
+            "type": "assignment",
+            "named": true
+          },
+          {
             "type": "binary",
             "named": true
           },
@@ -153,6 +231,10 @@
         "types": [
           {
             "type": "array",
+            "named": true
+          },
+          {
+            "type": "assignment",
             "named": true
           },
           {
@@ -259,6 +341,10 @@
             "named": true
           },
           {
+            "type": "assignment",
+            "named": true
+          },
+          {
             "type": "binary",
             "named": true
           },
@@ -319,6 +405,10 @@
             "named": true
           },
           {
+            "type": "assignment",
+            "named": true
+          },
+          {
             "type": "binary",
             "named": true
           },
@@ -371,6 +461,10 @@
       "types": [
         {
           "type": "array",
+          "named": true
+        },
+        {
+          "type": "assignment",
           "named": true
         },
         {
@@ -460,6 +554,10 @@
           "named": true
         },
         {
+          "type": "assignment",
+          "named": true
+        },
+        {
           "type": "binary",
           "named": true
         },
@@ -528,6 +626,10 @@
             "named": true
           },
           {
+            "type": "assignment",
+            "named": true
+          },
+          {
             "type": "binary",
             "named": true
           },
@@ -580,6 +682,10 @@
       "types": [
         {
           "type": "array",
+          "named": true
+        },
+        {
+          "type": "assignment",
           "named": true
         },
         {
@@ -639,6 +745,10 @@
       "types": [
         {
           "type": "array",
+          "named": true
+        },
+        {
+          "type": "assignment",
           "named": true
         },
         {
@@ -849,6 +959,10 @@
           "named": true
         },
         {
+          "type": "assignment",
+          "named": true
+        },
+        {
           "type": "binary",
           "named": true
         },
@@ -942,6 +1056,10 @@
   },
   {
     "type": "<=",
+    "named": false
+  },
+  {
+    "type": "=",
     "named": false
   },
   {

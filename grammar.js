@@ -57,6 +57,7 @@ module.exports = grammar({
       $.unary,
       $.binary,
       $.postfix,
+      $.assignment,
     ),
 
     _declaration: $ => choice(
@@ -103,6 +104,8 @@ module.exports = grammar({
       seq(field('left', $._expression), $.binary_operator, field('right', $._expression))
     ),
     postfix:       $ => seq($.number, $.postfix_operator),
+
+    assignment: $ => seq(field('name', $.identifier), '=', field('value', $._expression)),
 
     unary_operator:   $ => choice('not'),
     postfix_operator: $ => { return choice(...POSTFIX.map(x => token.immediate(x))) },
