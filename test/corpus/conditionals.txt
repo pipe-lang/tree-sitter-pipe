@@ -10,7 +10,8 @@ end
 (module
   (conditional
     (if (bool)
-      (number))))
+      (body
+        (number)))))
 
 ===
 with multiple instructions
@@ -25,7 +26,8 @@ end
 (module
   (conditional
     (if (bool)
-      (number) (number))))
+      (body
+        (number) (number)))))
 
 ===
 with else
@@ -41,9 +43,11 @@ end
 (module
   (conditional
     (if (bool)
-      (number))
+      (body
+        (number)))
     (else
-      (number))))
+      (body
+        (number)))))
 
 ===
 with elseif
@@ -61,8 +65,11 @@ end
 (module
   (conditional
     (if (bool)
-      (number))
+      (body
+        (number)))
     (elseif (bool)
-      (number))
+      (body
+        (number)))
     (else
-      (number))))
+      (body
+        (number)))))

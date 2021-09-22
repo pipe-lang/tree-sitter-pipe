@@ -54,6 +54,7 @@ module.exports = grammar({
 
     _expression: $ => choice(
       $._literal,
+      $.conditional,
       $.function_call,
       $.unary,
       $.binary,
@@ -62,7 +63,11 @@ module.exports = grammar({
     ),
 
     _declaration: $ => choice(
-      $.conditional
+      $.function,
+      // $.import,
+      // $.innclude,
+      // $.for,
+      // $.check
     ),
 
     number: $ => /\d+/,
@@ -96,8 +101,7 @@ module.exports = grammar({
 
     attributes: $ => choice(repeat1($._literal), repeat1(seq($.identifier, ':', $._literal))),
 
-    conditional: $ => seq($.if, repeat($.elseif), optional($.else), 'end'),
-
+    conditional:   $ => seq($.if, repeat($.elseif), optional($.else), 'end'),
     function_call: $ => seq($.identifier, '(', repeat($._expression), ')'),
     unary:         $ => prec.left(PREC.unary, seq($.unary_operator, $._expression)),
     binary:        $ => prec.left(PREC.binary,
@@ -118,15 +122,30 @@ module.exports = grammar({
       prec.left(PREC.multiplicative, choice('*', '/', 'mod')),
     ),
 
+    if:     $ => seq('if', $._expression, $.body),
+    elseif: $ => seq('elseif', $._expression, $.body),
+    else:   $ => seq('else', $.body),
+
+    function: $ => seq(
+      field('name', $.identifier),
+      '(',
+      field('params', repeat($.param)),
+      ')',
+      $.body,
+      'end'
+    ),
+
+    param: $ => seq(alias($.identifier, $.name), token.immediate(':'), alias($.name, $.type)),
+
     name:       $ => /[A-Z]+\w*/,   // NOTE should it be able to start with numbers?
     identifier: $ => /[a-z]+\w*/,   // NOTE should it be able to start with numbers?
 
-    if:     $ => seq('if', $._expression, $._block),
-    elseif: $ => seq('elseif', $._expression, $._block),
-    else:   $ => seq('else', $._block),
-
-    _block:  $ => field('body', repeat1($._expression))
+    body:  $ => repeat1($._expression)
   },
+
+  conflicts: $ => [
+    [$.function, $.function_call],
+  ]
 });
 
 // NOTE How to build this grammar using pipe lang?

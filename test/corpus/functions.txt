@@ -32,3 +32,65 @@ hello("world" 25)
   (function_call
     (identifier)
     (string) (number)))
+
+===
+function definition
+===
+
+hello()
+  30
+end
+
+---
+(module
+  (function
+    name: (identifier)
+    (body
+      (number)
+    )
+  )
+)
+
+===
+function with a Number parameter
+===
+
+hello(a: Number)
+  a
+end
+
+---
+(module
+  (function
+    (identifier)
+    (param
+      (name) (type))
+    (body
+      (variable))
+  )
+)
+
+===
+function with two parameters
+===
+
+hello(a: Number b: String)
+  a + b
+end
+
+---
+(module
+  (function
+    name: (identifier)
+    params: (param
+      (name) (type))
+    params: (param
+      (name) (type))
+    (body
+      (binary
+        left: (variable)
+        (binary_operator)
+        right: (variable)
+      ))
+  )
+)
