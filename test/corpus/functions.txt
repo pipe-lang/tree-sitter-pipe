@@ -94,3 +94,22 @@ end
       ))
   )
 )
+
+===
+function with check block
+===
+
+hello()
+  "hola"
+check
+  hello() is "hola"
+end
+
+---
+(module
+  (function
+    name: (identifier)
+    (body (string))
+    (check (is (function_call (identifier)) (string)))
+  )
+)

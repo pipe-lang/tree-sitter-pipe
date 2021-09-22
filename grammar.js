@@ -134,12 +134,15 @@ module.exports = grammar({
       field('params', repeat($.param)),
       ')',
       $.body,
+      optional($.check),
       'end'
     ),
 
     param: $ => seq(alias($.identifier, $.name), token.immediate(':'), alias($.name, $.type)),
     loop:  $ => seq('loop', $.body, 'end'),
     for:   $ => seq('for', field('params', repeat($.variable)), 'in', field('in', $._expression), $.body, 'end'),
+    check: $ => seq('check', repeat1(choice($._expression, $.is))),
+    is:    $ => seq($._expression, 'is', $._expression),
 
     name:       $ => /[A-Z]+\w*/,   // NOTE should it be able to start with numbers?
     identifier: $ => /[a-z]+\w*/,   // NOTE should it be able to start with numbers?
