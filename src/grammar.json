@@ -820,6 +820,10 @@
         {
           "type": "SYMBOL",
           "name": "loop"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "for"
         }
       ]
     },
@@ -899,6 +903,46 @@
         {
           "type": "STRING",
           "value": "loop"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "body"
+        },
+        {
+          "type": "STRING",
+          "value": "end"
+        }
+      ]
+    },
+    "for": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "for"
+        },
+        {
+          "type": "FIELD",
+          "name": "params",
+          "content": {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "variable"
+            }
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "in"
+        },
+        {
+          "type": "FIELD",
+          "name": "in",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
         },
         {
           "type": "SYMBOL",

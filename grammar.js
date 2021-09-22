@@ -126,7 +126,7 @@ module.exports = grammar({
     elseif: $ => seq('elseif', $._expression, $.body),
     else:   $ => seq('else', $.body),
 
-    _loops:    $ => choice($.loop),
+    _loops:    $ => choice($.loop, $.for),
     function: $ => seq(
       field('name', $.identifier),
       '(',
@@ -138,6 +138,7 @@ module.exports = grammar({
 
     param: $ => seq(alias($.identifier, $.name), token.immediate(':'), alias($.name, $.type)),
     loop:  $ => seq('loop', $.body, 'end'),
+    for:   $ => seq('for', field('params', repeat($.variable)), 'in', field('in', $._expression), $.body, 'end'),
 
     name:       $ => /[A-Z]+\w*/,   // NOTE should it be able to start with numbers?
     identifier: $ => /[a-z]+\w*/,   // NOTE should it be able to start with numbers?

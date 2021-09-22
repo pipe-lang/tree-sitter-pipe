@@ -9,7 +9,40 @@ end
 ---
 (module
   (loop
-    (body
-    (number))
+    (body (number))
+  )
+)
+
+===
+for loop
+===
+
+for it in array
+  "hola"
+end
+
+---
+(module
+  (for
+    params: (variable)
+    in: (variable)
+    (body (string))
+  )
+)
+
+===
+for loop with array
+===
+
+for it in [1]
+  it
+end
+
+---
+(module
+  (for
+    params: (variable)
+    in: (array (number))
+    (body (variable))
   )
 )
