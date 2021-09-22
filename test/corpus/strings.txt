@@ -19,14 +19,3 @@ quoted with content
 
 (module
   (string))
-
-=======
-unquoted
-=======
-
-steven
-
----
-
-(module
-  (string))

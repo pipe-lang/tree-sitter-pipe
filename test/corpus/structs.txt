@@ -39,7 +39,7 @@ Pet { age: 34 }
 With two named attributes
 =====
 
-Pet { name: kato age: 34 }
+Pet { name: "kato" age: 34 }
 
 ---
 (module

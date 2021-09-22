@@ -44,6 +44,7 @@ module.exports = grammar({
       $.number,
       $.float,
       $.bool,
+      $.variable,
       $.string,
       $.array,
       $.range,
@@ -67,7 +68,7 @@ module.exports = grammar({
     number: $ => /\d+/,
     float:  $ => /\d+\.\d+/,
     bool:   $ => choice('true', 'false'),
-    string: $ => choice( $._quoted_string, $._unquoted_string),
+    string: $ => choice($._quoted_string),
     array:  $ => seq('[', repeat($._literal), ']'),
     range:  $ => {
       const begin    = field('begin', $._literal);
@@ -86,7 +87,6 @@ module.exports = grammar({
     struct: $ => choice(seq($.name, '{', '}'), seq($.name, '{', $.attributes, '}')),
     enum: $ => seq($.name, '::', choice($.number, $.bool, $.identifier, $.name)),
 
-    _unquoted_string:   $ => /[a-z]+\w*/,
     _quoted_string:     $ => /\"\w*\"/,
 
     _range_operator: $ => choice($.inclusive, $.exclusive,),
@@ -104,8 +104,8 @@ module.exports = grammar({
       seq(field('left', $._expression), $.binary_operator, field('right', $._expression))
     ),
     postfix:       $ => seq($.number, $.postfix_operator),
-
-    assignment: $ => seq(field('name', $.identifier), '=', field('value', $._expression)),
+    assignment:    $ => seq($.variable, '=', field('value', $._expression)),
+    variable:      $ => alias($.identifier, 'name'),
 
     unary_operator:   $ => choice('not'),
     postfix_operator: $ => { return choice(...POSTFIX.map(x => token.immediate(x))) },
@@ -126,7 +126,7 @@ module.exports = grammar({
     else:   $ => seq('else', $._block),
 
     _block:  $ => field('body', repeat1($._expression))
-  }
+  },
 });
 
 // NOTE How to build this grammar using pipe lang?

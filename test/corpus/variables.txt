@@ -1,5 +1,5 @@
 ===
-variable simple asignation
+simple asignation
 ===
 
 a = 1
@@ -7,13 +7,13 @@ a = 1
 ---
 (module
   (assignment
-    name: (identifier)
+    (variable)
     value: (number)
   )
 )
 
 ===
-variable assign to an instruction
+assign to an instruction
 ===
 
 a = 1 + 1
@@ -21,11 +21,25 @@ a = 1 + 1
 ---
 (module
   (assignment
-    name: (identifier)
+    (variable)
     value: (binary
       left: (number)
       (binary_operator)
       right: (number)
     )
+  )
+)
+
+===
+assign to string
+===
+
+a = "hello"
+
+---
+(module
+  (assignment
+    (variable)
+    value: (string)
   )
 )

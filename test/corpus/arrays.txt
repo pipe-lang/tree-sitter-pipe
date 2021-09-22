@@ -25,7 +25,7 @@ with one integer
 with one string
 =======
 
-[picnic]
+["picnic"]
 
 ---
 
@@ -50,7 +50,7 @@ with two integers
 with two strings
 =======
 
-[picnic beach]
+["picnic" "beach"]
 
 ---
 

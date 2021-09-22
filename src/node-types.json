@@ -38,6 +38,10 @@
         {
           "type": "struct",
           "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
         }
       ]
     }
@@ -46,16 +50,6 @@
     "type": "assignment",
     "named": true,
     "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
       "value": {
         "multiple": false,
         "required": true,
@@ -111,9 +105,23 @@
           {
             "type": "unary",
             "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -158,6 +166,10 @@
         },
         {
           "type": "struct",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -222,6 +234,10 @@
           {
             "type": "unary",
             "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
           }
         ]
       },
@@ -279,6 +295,10 @@
           },
           {
             "type": "unary",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
@@ -387,6 +407,10 @@
           {
             "type": "unary",
             "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
           }
         ]
       }
@@ -451,6 +475,10 @@
           {
             "type": "unary",
             "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
           }
         ]
       }
@@ -509,6 +537,10 @@
         },
         {
           "type": "unary",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -604,14 +636,13 @@
         {
           "type": "unary",
           "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
         }
       ]
     }
-  },
-  {
-    "type": "identifier",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "if",
@@ -672,6 +703,10 @@
           {
             "type": "unary",
             "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
           }
         ]
       }
@@ -730,6 +765,10 @@
         },
         {
           "type": "unary",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -798,6 +837,10 @@
         {
           "type": "unary",
           "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
         }
       ]
     }
@@ -865,6 +908,10 @@
           {
             "type": "struct",
             "named": true
+          },
+          {
+            "type": "variable",
+            "named": true
           }
         ]
       },
@@ -902,6 +949,10 @@
           },
           {
             "type": "struct",
+            "named": true
+          },
+          {
+            "type": "variable",
             "named": true
           }
         ]
@@ -1009,12 +1060,21 @@
         {
           "type": "unary_operator",
           "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
         }
       ]
     }
   },
   {
     "type": "unary_operator",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "variable",
     "named": true,
     "fields": {}
   },
@@ -1143,6 +1203,10 @@
     "named": false
   },
   {
+    "type": "identifier",
+    "named": true
+  },
+  {
     "type": "if",
     "named": false
   },
@@ -1172,6 +1236,10 @@
   },
   {
     "type": "mod",
+    "named": false
+  },
+  {
+    "type": "name",
     "named": false
   },
   {
