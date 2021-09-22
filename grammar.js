@@ -65,7 +65,7 @@ module.exports = grammar({
     _declaration: $ => choice(
       $._loops,
       $.function,
-      // $.import,
+      $.import,
       // $.innclude,
       // $.check
     ),
@@ -126,7 +126,8 @@ module.exports = grammar({
     elseif: $ => seq('elseif', $._expression, $.body),
     else:   $ => seq('else', $.body),
 
-    _loops:    $ => choice($.loop, $.for),
+    _loops:   $ => choice($.loop, $.for),
+    import:   $ => seq('import', alias(/\w+/, $.name), optional(seq('as', $.identifier))),
     function: $ => seq(
       field('name', $.identifier),
       '(',

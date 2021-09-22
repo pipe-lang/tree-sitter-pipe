@@ -1,0 +1,10 @@
+===
+import
+===
+
+import standard as std
+
+---
+(module
+	(import (name) (identifier))
+)
