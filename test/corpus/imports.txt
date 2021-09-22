@@ -6,5 +6,16 @@ import standard as std
 
 ---
 (module
-	(import (name) (identifier))
+  (import (name) (identifier))
+)
+
+===
+include
+===
+
+include standard
+
+---
+(module
+  (include (name))
 )

@@ -66,8 +66,7 @@ module.exports = grammar({
       $._loops,
       $.function,
       $.import,
-      // $.innclude,
-      // $.check
+      $.include,
     ),
 
     number: $ => /\d+/,
@@ -128,6 +127,7 @@ module.exports = grammar({
 
     _loops:   $ => choice($.loop, $.for),
     import:   $ => seq('import', alias(/\w+/, $.name), optional(seq('as', $.identifier))),
+    include:  $ => seq('include', alias(/\w+/, $.name)),
     function: $ => seq(
       field('name', $.identifier),
       '(',
