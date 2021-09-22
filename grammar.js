@@ -63,10 +63,10 @@ module.exports = grammar({
     ),
 
     _declaration: $ => choice(
+      $._loops,
       $.function,
       // $.import,
       // $.innclude,
-      // $.for,
       // $.check
     ),
 
@@ -102,7 +102,7 @@ module.exports = grammar({
     attributes: $ => choice(repeat1($._literal), repeat1(seq($.identifier, ':', $._literal))),
 
     conditional:   $ => seq($.if, repeat($.elseif), optional($.else), 'end'),
-    function_call: $ => seq($.identifier, '(', repeat($._expression), ')'),
+    function_call: $ => seq($.identifier, '(', field('params', repeat($._expression)), ')'),
     unary:         $ => prec.left(PREC.unary, seq($.unary_operator, $._expression)),
     binary:        $ => prec.left(PREC.binary,
       seq(field('left', $._expression), $.binary_operator, field('right', $._expression))
@@ -126,6 +126,7 @@ module.exports = grammar({
     elseif: $ => seq('elseif', $._expression, $.body),
     else:   $ => seq('else', $.body),
 
+    _loops:    $ => choice($.loop),
     function: $ => seq(
       field('name', $.identifier),
       '(',
@@ -136,11 +137,12 @@ module.exports = grammar({
     ),
 
     param: $ => seq(alias($.identifier, $.name), token.immediate(':'), alias($.name, $.type)),
+    loop:  $ => seq('loop', $.body, 'end'),
 
     name:       $ => /[A-Z]+\w*/,   // NOTE should it be able to start with numbers?
     identifier: $ => /[a-z]+\w*/,   // NOTE should it be able to start with numbers?
 
-    body:  $ => repeat1($._expression)
+    body:  $ => prec.left(repeat1($._expression))
   },
 
   conflicts: $ => [

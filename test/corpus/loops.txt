@@ -1,0 +1,15 @@
+===
+infinity loop
+===
+
+loop
+  58
+end
+
+---
+(module
+  (loop
+    (body
+    (number))
+  )
+)
