@@ -59,10 +59,6 @@
             "named": true
           },
           {
-            "type": "assignment",
-            "named": true
-          },
-          {
             "type": "binary",
             "named": true
           },
@@ -196,10 +192,6 @@
             "named": true
           },
           {
-            "type": "assignment",
-            "named": true
-          },
-          {
             "type": "binary",
             "named": true
           },
@@ -263,10 +255,6 @@
         "types": [
           {
             "type": "array",
-            "named": true
-          },
-          {
-            "type": "assignment",
             "named": true
           },
           {
@@ -437,10 +425,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "binary",
           "named": true
         },
@@ -554,10 +538,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "binary",
           "named": true
         },
@@ -657,10 +637,6 @@
         "types": [
           {
             "type": "array",
-            "named": true
-          },
-          {
-            "type": "assignment",
             "named": true
           },
           {
@@ -796,10 +772,6 @@
             "named": true
           },
           {
-            "type": "assignment",
-            "named": true
-          },
-          {
             "type": "binary",
             "named": true
           },
@@ -879,10 +851,6 @@
       "types": [
         {
           "type": "array",
-          "named": true
-        },
-        {
-          "type": "assignment",
           "named": true
         },
         {
@@ -992,10 +960,6 @@
       "types": [
         {
           "type": "array",
-          "named": true
-        },
-        {
-          "type": "assignment",
           "named": true
         },
         {
@@ -1196,10 +1160,6 @@
       "types": [
         {
           "type": "array",
-          "named": true
-        },
-        {
-          "type": "assignment",
           "named": true
         },
         {
@@ -1430,10 +1390,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "binary",
           "named": true
         },
@@ -1502,10 +1458,6 @@
       "types": [
         {
           "type": "array",
-          "named": true
-        },
-        {
-          "type": "assignment",
           "named": true
         },
         {

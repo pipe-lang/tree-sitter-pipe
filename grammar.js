@@ -59,11 +59,11 @@ module.exports = grammar({
       $.unary,
       $.binary,
       $.postfix,
-      $.assignment,
       $.pipe,
     ),
 
     _declaration: $ => choice(
+      $.assignment,
       $._loops,
       $.function,
       $.import,
@@ -150,15 +150,16 @@ module.exports = grammar({
     name:       $ => /[A-Z]+\w*/,   // NOTE should it be able to start with numbers?
     identifier: $ => /[a-z]+\w*/,   // NOTE should it be able to start with numbers?
 
-    body:  $ => prec.left(repeat1($._expression))
+    body:  $ => prec.left(repeat1(choice($._expression, $.assignment)))
   },
 
   conflicts: $ => [
+    [$.body,     $.term],
     [$.check,    $.term],
-    [$.elseif,   $.term,          $.body],
-    [$.for,      $.term,          $.body],
+    [$.elseif,   $.term],
+    [$.for,     $.term],
     [$.function, $.function_call],
-    [$.if,       $.term,          $.body],
+    [$.if,       $.term],
     [$.module,   $.term],
     [$.pipe,     $.term],
     [$.term],

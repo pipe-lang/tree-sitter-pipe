@@ -87,10 +87,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "assignment"
-        },
-        {
-          "type": "SYMBOL",
           "name": "pipe"
         }
       ]
@@ -98,6 +94,10 @@
     "_declaration": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "assignment"
+        },
         {
           "type": "SYMBOL",
           "name": "_loops"
@@ -1127,8 +1127,17 @@
       "content": {
         "type": "REPEAT1",
         "content": {
-          "type": "SYMBOL",
-          "name": "_expression"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_expression"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "assignment"
+            }
+          ]
         }
       }
     }
@@ -1141,18 +1150,20 @@
   ],
   "conflicts": [
     [
+      "body",
+      "term"
+    ],
+    [
       "check",
       "term"
     ],
     [
       "elseif",
-      "term",
-      "body"
+      "term"
     ],
     [
       "for",
-      "term",
-      "body"
+      "term"
     ],
     [
       "function",
@@ -1160,8 +1171,7 @@
     ],
     [
       "if",
-      "term",
-      "body"
+      "term"
     ],
     [
       "module",

@@ -43,3 +43,23 @@ double pipe
     (binary (variable) (binary_operator) (number))
   )
 )
+
+===
+pipe and equals
+===
+
+a = 4 | it + 1
+
+---
+(module
+  (assignment
+    (variable)
+    value: (pipe
+      (term (number))
+      (binary
+        left: (variable)
+        (binary_operator)
+        right: (number))
+    )
+  )
+)
