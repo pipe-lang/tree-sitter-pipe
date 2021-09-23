@@ -8,7 +8,7 @@ pipe a number
 (module
 	(pipe
     (term (number))
-    (term (variable))
+    (variable)
 	)
 )
 
@@ -22,6 +22,24 @@ pipe two numbers to a lambda
 (module
 	(pipe
     (term (number) (number))
-    (term (binary (variable) (binary_operator) (variable)))
+    (binary (variable) (binary_operator) (variable))
 	)
+)
+
+===
+double pipe
+===
+
+12 33 | a + b | it + 1
+
+---
+(module
+  (pipe
+    (term
+        (pipe
+            (term (number) (number))
+            (binary (variable) (binary_operator) (variable)))
+    )
+    (binary (variable) (binary_operator) (number))
+  )
 )

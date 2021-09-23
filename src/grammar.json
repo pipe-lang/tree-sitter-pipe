@@ -553,7 +553,7 @@
           },
           {
             "type": "SYMBOL",
-            "name": "term"
+            "name": "_expression"
           }
         ]
       }
@@ -1141,17 +1141,8 @@
   ],
   "conflicts": [
     [
-      "function",
-      "function_call"
-    ],
-    [
-      "module",
+      "check",
       "term"
-    ],
-    [
-      "if",
-      "term",
-      "body"
     ],
     [
       "elseif",
@@ -1159,15 +1150,28 @@
       "body"
     ],
     [
-      "term"
-    ],
-    [
       "for",
       "term",
       "body"
     ],
     [
-      "check",
+      "function",
+      "function_call"
+    ],
+    [
+      "if",
+      "term",
+      "body"
+    ],
+    [
+      "module",
+      "term"
+    ],
+    [
+      "pipe",
+      "term"
+    ],
+    [
       "term"
     ]
   ],

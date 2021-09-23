@@ -110,7 +110,7 @@ module.exports = grammar({
     postfix:       $ => seq($.number, $.postfix_operator),
     assignment:    $ => prec(1, seq($.variable, '=', field('value', $._expression))),
     variable:      $ => alias($.identifier, 'name'),
-    pipe:          $ => prec.left(seq($.term, '|', $.term)),
+    pipe:          $ => prec.left(seq($.term, '|', $._expression)),
 
     unary_operator:   $ => choice('not'),
     postfix_operator: $ => { return choice(...POSTFIX.map(x => token.immediate(x))) },
@@ -154,13 +154,14 @@ module.exports = grammar({
   },
 
   conflicts: $ => [
+    [$.check,    $.term],
+    [$.elseif,   $.term,          $.body],
+    [$.for,      $.term,          $.body],
     [$.function, $.function_call],
-    [$.module, $.term],
-    [$.if, $.term, $.body],
-    [$.elseif, $.term, $.body],
+    [$.if,       $.term,          $.body],
+    [$.module,   $.term],
+    [$.pipe,     $.term],
     [$.term],
-    [$.for, $.term, $.body],
-    [$.check, $.term],
   ]
 });
 
