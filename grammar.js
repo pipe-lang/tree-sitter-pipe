@@ -60,6 +60,7 @@ module.exports = grammar({
       $.binary,
       $.postfix,
       $.assignment,
+      $.pipe,
     ),
 
     _declaration: $ => choice(
@@ -107,8 +108,9 @@ module.exports = grammar({
       seq(field('left', $._expression), $.binary_operator, field('right', $._expression))
     ),
     postfix:       $ => seq($.number, $.postfix_operator),
-    assignment:    $ => seq($.variable, '=', field('value', $._expression)),
+    assignment:    $ => prec(1, seq($.variable, '=', field('value', $._expression))),
     variable:      $ => alias($.identifier, 'name'),
+    pipe:          $ => prec.left(seq($.term, '|', $.term)),
 
     unary_operator:   $ => choice('not'),
     postfix_operator: $ => { return choice(...POSTFIX.map(x => token.immediate(x))) },
@@ -142,7 +144,8 @@ module.exports = grammar({
     loop:  $ => seq('loop', $.body, 'end'),
     for:   $ => seq('for', field('params', repeat($.variable)), 'in', field('in', $._expression), $.body, 'end'),
     check: $ => seq('check', repeat1(choice($._expression, $.is))),
-    is:    $ => seq($._expression, 'is', $._expression),
+    is:    $ => prec.right(1, seq($._expression, 'is', $._expression)),
+    term:  $ => repeat1($._expression),
 
     name:       $ => /[A-Z]+\w*/,   // NOTE should it be able to start with numbers?
     identifier: $ => /[a-z]+\w*/,   // NOTE should it be able to start with numbers?
@@ -152,6 +155,12 @@ module.exports = grammar({
 
   conflicts: $ => [
     [$.function, $.function_call],
+    [$.module, $.term],
+    [$.if, $.term, $.body],
+    [$.elseif, $.term, $.body],
+    [$.term],
+    [$.for, $.term, $.body],
+    [$.check, $.term],
   ]
 });
 

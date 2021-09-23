@@ -91,6 +91,10 @@
             "named": true
           },
           {
+            "type": "pipe",
+            "named": true
+          },
+          {
             "type": "postfix",
             "named": true
           },
@@ -224,6 +228,10 @@
             "named": true
           },
           {
+            "type": "pipe",
+            "named": true
+          },
+          {
             "type": "postfix",
             "named": true
           },
@@ -287,6 +295,10 @@
           },
           {
             "type": "number",
+            "named": true
+          },
+          {
+            "type": "pipe",
             "named": true
           },
           {
@@ -377,6 +389,10 @@
           "named": true
         },
         {
+          "type": "pipe",
+          "named": true
+        },
+        {
           "type": "postfix",
           "named": true
         },
@@ -454,6 +470,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "pipe",
           "named": true
         },
         {
@@ -570,6 +590,10 @@
           "named": true
         },
         {
+          "type": "pipe",
+          "named": true
+        },
+        {
           "type": "postfix",
           "named": true
         },
@@ -665,6 +689,10 @@
           },
           {
             "type": "number",
+            "named": true
+          },
+          {
+            "type": "pipe",
             "named": true
           },
           {
@@ -800,6 +828,10 @@
             "named": true
           },
           {
+            "type": "pipe",
+            "named": true
+          },
+          {
             "type": "postfix",
             "named": true
           },
@@ -883,6 +915,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "pipe",
           "named": true
         },
         {
@@ -988,6 +1024,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "pipe",
           "named": true
         },
         {
@@ -1097,6 +1137,10 @@
           "named": true
         },
         {
+          "type": "pipe",
+          "named": true
+        },
+        {
           "type": "postfix",
           "named": true
         },
@@ -1137,6 +1181,21 @@
         },
         {
           "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pipe",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "term",
           "named": true
         }
       ]
@@ -1295,6 +1354,81 @@
     }
   },
   {
+    "type": "term",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "array",
+          "named": true
+        },
+        {
+          "type": "assignment",
+          "named": true
+        },
+        {
+          "type": "binary",
+          "named": true
+        },
+        {
+          "type": "bool",
+          "named": true
+        },
+        {
+          "type": "conditional",
+          "named": true
+        },
+        {
+          "type": "enum",
+          "named": true
+        },
+        {
+          "type": "float",
+          "named": true
+        },
+        {
+          "type": "function_call",
+          "named": true
+        },
+        {
+          "type": "number",
+          "named": true
+        },
+        {
+          "type": "pipe",
+          "named": true
+        },
+        {
+          "type": "postfix",
+          "named": true
+        },
+        {
+          "type": "range",
+          "named": true
+        },
+        {
+          "type": "string",
+          "named": true
+        },
+        {
+          "type": "struct",
+          "named": true
+        },
+        {
+          "type": "unary",
+          "named": true
+        },
+        {
+          "type": "variable",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "unary",
     "named": true,
     "fields": {},
@@ -1336,6 +1470,10 @@
         },
         {
           "type": "number",
+          "named": true
+        },
+        {
+          "type": "pipe",
           "named": true
         },
         {
@@ -1633,6 +1771,10 @@
   },
   {
     "type": "{",
+    "named": false
+  },
+  {
+    "type": "|",
     "named": false
   },
   {

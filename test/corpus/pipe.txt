@@ -1,0 +1,27 @@
+===
+pipe a number
+===
+
+42 | it
+
+---
+(module
+	(pipe
+    (term (number))
+    (term (variable))
+	)
+)
+
+===
+pipe two numbers to a lambda
+===
+
+12 33 | a + b
+
+---
+(module
+	(pipe
+    (term (number) (number))
+    (term (binary (variable) (binary_operator) (variable)))
+	)
+)
