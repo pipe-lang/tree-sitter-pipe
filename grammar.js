@@ -10,35 +10,15 @@ const PREC = {
 }
 
 const POSTFIX = [
-  'b',
-  'kb',
-  'mb',
-  'gb',
-  'tb',
-  'pb',
-
-  'bi',
-  'kbi',
-  'mbi',
-  'gbi',
-  'tbi',
-  'pbi',
-
-  'sec',
-  'min',
-  'hr',
-  'hrs',
-  'day',
-  'days',
-  'wk',
-  'wks',
+  'b','kb','mb','gb','tb','pb','bi','kbi','mbi','gbi','tbi','pbi',
+  'sec','min','hr','hrs','day','days','wk','wks',
 ];
 
 module.exports = grammar({
   name: 'pipe',
 
   rules: {
-    module: $ => repeat(choice($._declaration, $._expression)),
+    module: $ => repeat($._declaration),
 
     _literal: $ => choice(
       $.number,
@@ -64,6 +44,7 @@ module.exports = grammar({
 
     _declaration: $ => choice(
       $.assignment,
+      $._expression,
       $._loops,
       $.function,
       $.import,
@@ -150,18 +131,18 @@ module.exports = grammar({
     name:       $ => /[A-Z]+\w*/,   // NOTE should it be able to start with numbers?
     identifier: $ => /[a-z]+\w*/,   // NOTE should it be able to start with numbers?
 
-    body:  $ => prec.left(repeat1(choice($._expression, $.assignment)))
+    body:  $ => prec.left(repeat1(choice($._expression, $.assignment, $._loops)))
   },
 
   conflicts: $ => [
-    [$.body,     $.term],
-    [$.check,    $.term],
-    [$.elseif,   $.term],
-    [$.for,     $.term],
     [$.function, $.function_call],
-    [$.if,       $.term],
-    [$.module,   $.term],
-    [$.pipe,     $.term],
+    [$.term,     $._declaration],
+    [$.term,     $.body],
+    [$.term,     $.check],
+    [$.term,     $.elseif],
+    [$.term,     $.for],
+    [$.term,     $.if],
+    [$.term,     $.pipe],
     [$.term],
   ]
 });

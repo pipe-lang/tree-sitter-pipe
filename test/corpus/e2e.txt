@@ -1,0 +1,67 @@
+===
+fibonacci
+===
+include standard
+
+fib(n: Number)
+  if 1 | n <= it
+    n
+  else
+    fib(n - 1) + fib(n - 2)
+  end
+check
+  3 | fib is 5
+end
+
+a = 10 | fib | a + 1
+
+for x in []
+  "hola" | print
+end
+---
+(module
+  (include
+  (name))
+  (function
+    (identifier)
+    (param (name) (type))
+    (body
+      (conditional
+        (if
+          (pipe
+            (term (number))
+            (binary (variable) (binary_operator) (variable)))
+          (body (variable)))
+        (else
+          (body
+            (binary
+              (function_call
+                (identifier)
+                (binary (variable) (binary_operator) (number)))
+              (binary_operator)
+              (function_call
+                (identifier)
+                (binary (variable) (binary_operator) (number))))))
+        )
+      )
+      (check (is
+        (pipe (term (number)) (variable))
+        (number))
+      )
+  )
+  (assignment
+    (variable)
+    (pipe
+      (term (pipe (term (number)) (variable)))
+      (binary (variable) (binary_operator) (number))
+    )
+  )
+  (for
+    (variable)
+    (array)
+    (body
+      (pipe (term
+        (string))
+        (variable)))
+  )
+)

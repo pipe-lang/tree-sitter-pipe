@@ -4,17 +4,8 @@
     "module": {
       "type": "REPEAT",
       "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "SYMBOL",
-            "name": "_declaration"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "_expression"
-          }
-        ]
+        "type": "SYMBOL",
+        "name": "_declaration"
       }
     },
     "_literal": {
@@ -97,6 +88,10 @@
         {
           "type": "SYMBOL",
           "name": "assignment"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expression"
         },
         {
           "type": "SYMBOL",
@@ -1136,6 +1131,10 @@
             {
               "type": "SYMBOL",
               "name": "assignment"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_loops"
             }
           ]
         }
@@ -1150,36 +1149,36 @@
   ],
   "conflicts": [
     [
-      "body",
-      "term"
-    ],
-    [
-      "check",
-      "term"
-    ],
-    [
-      "elseif",
-      "term"
-    ],
-    [
-      "for",
-      "term"
-    ],
-    [
       "function",
       "function_call"
     ],
     [
-      "if",
-      "term"
+      "term",
+      "_declaration"
     ],
     [
-      "module",
-      "term"
+      "term",
+      "body"
     ],
     [
-      "pipe",
-      "term"
+      "term",
+      "check"
+    ],
+    [
+      "term",
+      "elseif"
+    ],
+    [
+      "term",
+      "for"
+    ],
+    [
+      "term",
+      "if"
+    ],
+    [
+      "term",
+      "pipe"
     ],
     [
       "term"
